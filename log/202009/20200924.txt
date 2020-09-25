@@ -1,0 +1,27 @@
+開発環境セットアップ：
+ーVirtualBoxでUbuntu Linuxをインストールしました
+
+Github：
+ーレポジトリを作成しました
+
+Githubについて学んだこと：
+ーgithub flowについて習いました
+ーbranchの作り方
+ーPRする方法
+ーcommit, merge, branch, checkout, push, addのコマンド
+
+Rubyについて学んだこと（まだ実行していません）：
+ーこのチュートリアル動画を観ました：https://youtu.be/8NI57SrDiVw
+ー変数の定義方と代入
+ー定数
+ー文字列と連結
+ー出力する文字列に変数を埋め込むこと
+ー配列
+ーハッシュ
+ーメソッド（関数）の定義と引数、デフォルト値、キーワード引数、可変長とハッシュ引数
+ーif文、else文、elsif文、条件式、条件分岐、比較演算子、unless条件式
+ーループ処理、配列とハッシュの要素を一つずつ処理する方法
+ーreturn の戻り値
+ーfail文、raise文、 rescue文, ensure文
+ークラス、attr_accessor, staticメソッド、継承
+ーmodule
