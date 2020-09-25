@@ -1,4 +1,3 @@
 Gitについて学んだこと：
 ーlog, status, add, diff, commit, push, pull, clone, remoteのコマンドとそれぞれのオプションを理解するためにhttps://git-scm.com/book/en/v2では2.5章まで進みました
-ー本で乗ってるコマンドとオプションを実行してみました
-
+ー本に載ってるコマンドとオプションを実行してみました
