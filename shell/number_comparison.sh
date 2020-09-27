@@ -10,7 +10,7 @@ if [[ $NUMBER1 -gt $NUMBER2 ]]
 then
   echo "$NUMBER1は$NUMBER2より大きいです。"
 #数値の比較の別の方法の試し
-elif (( NUMBER1 < NUMBER2 ))
+elif (( $NUMBER1 < $NUMBER2 ))
 then
   echo "$NUMBER2は$NUMBER1より大きいです。"
 else
