@@ -1,0 +1,44 @@
+読みました:
+- https://blog.codecamp.jp/terminal-how-to
+- https://wa3.i-3-i.info/word1537.html
+- https://wa3.i-3-i.info/word1166.html
+
+習って実行したショートカットキー：
+- 元：https://linuxhandbook.com/linux-shortcuts/
+- TAB
+- ctrl + c
+- ctrl + z
+- ctrl + d, exit
+- ctrl + l, clear
+- ctrl + a, HOME
+- ctrl + e, END
+- ctrl + u
+- ctrl + k
+- ctrl + w
+- ctrl + y
+- ctrl + p、上矢印キー
+- ctrl + n, 下矢印キー
+- ctrl + r 
+
+習って実行したlinuxコマンド：
+- pwd
+- cd, ~, .., -
+- cat, > , >> , | more の使い方, options: -n, -s, -E
+- touch, options: -c, -a, -m, -d, -t, -r
+- stat
+- ls, options: -a, -1, -l
+- ll
+- mkdir, options: -p, -v, -m
+- rm, options: -r, -i, -I, -f, -v
+- mv, options: -i, -f, -b, -n
+- cp, options: -i, -r, -b
+
+シェルスクリプトで実行した：
+- 変数の代入方法と使い方
+- 出力に変数を埋め込む方法
+- 入力を変数に代入する方法
+- なぜ変数の値を出すときに変数を"で囲むべきかということ
+- 条件式を書く方法
+- if文で数値の比較, 数値の比較の演算子
+- if文で文字列の比較
+- for文
