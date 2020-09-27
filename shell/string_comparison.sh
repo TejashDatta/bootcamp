@@ -7,7 +7,7 @@ read -p "二番目の文字列を入力してください： " STRING2
 
 if [[ -z $STRING1 || -z $STRING2 ]]
 then
-  echo "エラー：文字列をちゃんと入力してください。"
+  echo "エラー：空な文字列はいけません。"
   exit
 fi
 
