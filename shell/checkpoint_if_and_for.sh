@@ -1,25 +1,23 @@
 #!/bin/bash
 
-for i in {1..10}
+#for文とif文を使用して下限と上限の間に数値ごとは偶数か奇数かと示すプログラムです。
+
+echo "下限と上限を入力してください："
+read LOWER_LIMIT UPPER_LIMIT
+
+if [[ $LOWER_LIMIT -gt $UPPER_LIMIT ]]
+then
+  echo "エラー：下限は上限より高いです。"
+  exit
+fi
+
+for ((i = $LOWER_LIMIT; i <= $UPPER_LIMIT; i++))
 do
   if ((i % 2 == 0))
   then
-    echo "$i is even"
+    echo "$iは偶数です。"
    else
-    echo "$i is odd"
+    echo "$iは奇数です。"
   fi
 done
 
-#出力
-: '
-1 is odd
-2 is even
-3 is odd
-4 is even
-5 is odd
-6 is even
-7 is odd
-8 is even
-9 is odd
-10 is even
-'
