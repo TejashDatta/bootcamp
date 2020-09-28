@@ -11,7 +11,8 @@ then
   exit
 fi
 
-for ((i = $LOWER_LIMIT; i <= $UPPER_LIMIT; i++))
+#for ((i = $LOWER_LIMIT; i <= $UPPER_LIMIT; i++))
+for i in $(seq $LOWER_LIMIT $UPPER_LIMIT)
 do
   if ((i % 2 == 0))
   then
