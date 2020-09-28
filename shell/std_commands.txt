@@ -1,0 +1,28 @@
+#STDIN, STDOUT, STDERRの使用
+
+#STDIN: ファイルから入力をとる(一番目の行だけ)
+read VAR < FILE
+
+#STDIN: heredocを使用してFILEに数行のテクストを入力する
+cat <<END > FILE
+
+#STDINをechoする
+echo "$(<FILE)"
+
+#STDOUT: FILE1の内容をFILE2にコピする
+cat FILE1 > FILE2
+
+#STDOUT: コマンドの出力をファイルに書く
+ls > OUTPUT_FILE
+
+#STDOUT: コマンドの出力をファイルに追加する
+ls >> OUTPUT_FILE
+
+#STDERRをファイルに出力する
+wrong_command 2> ERROR_FILE
+
+#STDOUTとSTDERRを同時二ファイルに出力する
+date 1> OUTPUT_FILE 2> ERROR_FILE
+
+#STDOUTとSTDERRを同じファイルに出力する
+date > FILE 2>&1
