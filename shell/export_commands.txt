@@ -1,0 +1,8 @@
+#マンドラインチャットで一つずつ入力して実行したコマンドの歴
+
+EXPORTED_NAME=TEJASH
+export EXPORTED_NAME
+bash
+echo $EXPORTED_NAME
+exit
+export -n EXPORTED_NAME
