@@ -1,0 +1,15 @@
+Linuxコマンド:
+- chown (user, user:group)
+- chgrp
+- chmod (octal, r w x, u g a, + - =)
+- ps. options: -A -e, -T, -a, -x, -f, 
+  -u -U, -G, -C, -L, -p, --ppid, --forest, -o, --sort
+  BSD: a, u, x, f, o
+- top. options: e, E, l, 1, t, m, z, y, x, b, P, M, N, T, c, u,
+  i, n, r, k, Z, F, A, W, d, スペースキー
+- curl. options: -o, -O, -C -, -x -U, --proxy, -I, --data, -u ftp://, 
+  -T ftp://, --user-agent, -A, --cookie-jar, --cookie, -b,
+  --limit-rate, -L
+- jobs, options: -l
+- バックグラウンド実行　＆
+- &&と||の意味
