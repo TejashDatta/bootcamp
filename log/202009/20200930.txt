@@ -1,3 +1,7 @@
+Linuxについて学んだこと：
+ーファイルパーミッション, user, group
+ープロセス、子プロセス
+
 Linuxコマンド:
 - chown (user, user:group)
 - chgrp
@@ -11,5 +15,7 @@ Linuxコマンド:
   -T ftp://, --user-agent, -A, --cookie-jar, --cookie, -b,
   --limit-rate, -L
 - jobs, options: -l
+
+コマンドライン：
 - バックグラウンド実行　＆
 - &&と||の意味
