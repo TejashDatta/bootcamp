@@ -50,10 +50,10 @@ find . mmin -60
 find . \( -name filename1 -o -name filename2  \) -exec cat {} > concatenated_file \;
 
 #chmod
-chmod file 777
-chmod file +x
-chmod file a=r
-chmod file g-w
+chmod 777 file
+chmod +x file
+chmod a=r file
+chmod g-w file
 
 #chown
 chown tejash file 
