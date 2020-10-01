@@ -1,0 +1,16 @@
+習ったコマンド：
+- cut, options: -f, -d
+- file, options: -b, --mime-type
+
+習ったオプション：
+- curl: -w "%{http_code}"
+- mkdir: -p
+
+シェルに関して習ったこと：
+- grepコマンドに"."をエスケープする必要
+- findの-nameオプションに"*"を""で囲む必要
+- /dev/nullの使用
+- ディレクトリ名に"/"をつける仕方
+- 数行の出力はcatとheredocでする方法
+- fileコマンドでファイルタイプをわかること
+- cutコマンドで出力の欄ずつを抜くこと
