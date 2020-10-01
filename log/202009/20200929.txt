@@ -1,0 +1,12 @@
+ガード筋テクニック
+
+Linuxコマンド:
+- grep options: -E, -e, -f, -i, -w, -x, -v, -m, -n, 
+  -h, -o, -r, -l, -c, -A, -B, -C
+  regex: ^ $ |
+- tail options: -n (-, +), -c, -q, -v, -f, -s
+- find options: -name, -iname, -type (f, d), -perm (/u=r, /a=x, octal), 
+  -exec, -ok, -print, -empty, -user, -group, -atime, -mtime, 
+  -cmin, -mmin, -amin, -size, ! expr, \(expr \), -a , -o
+
+フィアルに関してmodifyとchangeの差
