@@ -1,0 +1,9 @@
+rbenvとrubyバージョン2.6.6をインストールしました。
+
+rubyの教材の検索：
+- https://youtu.be/t_ispmWmdjY を半分ぐらい観ました。
+- The Ruby Programming Language - David Flanagan, Yukihiro Matsumoto　本の数ページを読みました。
+- https://www.javadrive.jp/ruby/ でrubyを学習すると決めました。
+
+https://www.javadrive.jp/ruby/　の読み進み：
+- 最初から数値と四則演算章まで読みました。
