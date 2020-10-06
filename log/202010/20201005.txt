@@ -1,0 +1,16 @@
+Rubyについて学んだこと：
+-　変数について：rubyの変数はオブジェクトを参照する名札です
+ー定数について：定数の定義方法、rubyでの組み込み定数
+ーif文とelsifとelseの使い
+ーtrue, false, nilのオブジェクトクラス
+ーunless文
+ーcase文
+ー条件演算子の使い
+ーif, unless修飾子
+ー繰り返し処理：while文、unless文、 for文
+ー範囲オブジェクト
+ーsuccメソッド, eachメソッド
+ーイテレータが何だについて
+ーtimes, upto, downto, step, loop メソッド
+- break, next, redo キーワード
+- while, until 修飾子
