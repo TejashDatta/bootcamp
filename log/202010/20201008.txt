@@ -1,7 +1,15 @@
 習って実行したarrayクラスメソッド：
+
 unshift, reverse_each, each_index, each_with_index, first, last, take, drop, 
 include?, join, concat, index, <<, empty?, zip, rotate, select, map, sort_by, reduce
 
 rubyについて習ったこと：
-- time class methods: now, new, local, mktime, at, utc, gm, utc_offset, to_i, to_f, tv_sec
-- string class methods: slice, index, rindex, include?, delete, strip!, lstrip!, rstrip!, chomp!, split
+
+- time class methods: now, new, local, mktime, at, utc, gm, utc_offset, 
+to_i, to_f, tv_sec
+
+- string class methods: slice, index, rindex, include?, delete, strip!, 
+lstrip!, rstrip!, chomp!, split
+
+- numeric class methods: abs, truncate, round, ceil, floor, to_i, to_f, 
+induced_from, chr, to_s(base), div, quo, modulo, remainder
