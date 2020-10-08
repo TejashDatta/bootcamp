@@ -40,6 +40,9 @@ p example_array
 example_array[1, 0] = 99
 p example_array
 
+# insert to front
+example_array.unshift(-123)
+
 # push
 example_array.push(214, 30)
 
@@ -89,3 +92,51 @@ matrix = [[1, 2, 3],
           [4, 5, 6]]
 
 p matrix, matrix.transpose
+
+array1 = Array.new(10) { |index| index * 2 }
+
+p array1.first, array1.last, array1.take(3), array1.drop(7)
+
+p array1.include? 5
+
+puts array1.join(' - ')
+puts array1 * ' - '
+
+p array1.concat([2, 4], [90, 10])
+
+p array1.index(90)
+
+p array1.empty?
+
+p [1, 2, 3].zip([4, 5, 6], [7, 8, 9])
+
+p array1.rotate(-2)
+
+# BLOCK METHODS
+
+# select! same as keep_if
+p array1.select { |element| element.even? }
+
+# map same as collect
+p (array1.map { |element| element**2 })
+
+reversed_numbers = ''
+
+array1.reverse_each do |element|
+  reversed_numbers << element.to_s << '-'
+end
+
+puts reversed_numbers
+
+array1.each_index { |index| print index, ' ' }
+puts
+array1.each_with_index { |value, index| print index, '-', value, ' ' }
+puts
+
+# reduce
+p array1.reduce(:+)
+p(array1.reduce { |result, current| result += current })
+p array1.reduce(10) { |result, current| result += current }
+
+hash_array = [{ name: 'Tejash', age: 40 }, { name: 'Charles', age: 30 }]
+p(hash_array.sort_by { |element| element[:age] })
