@@ -76,7 +76,7 @@ p hash
 
 # merge same as update
 hash.merge!({ Israel: 'Netanyahu', Pakistan: 'Khan', USA: 'Biden' })
-hash.merge!({ USA: 'Joe', India: 'Narendra' }) { |key, old_value, new_value| new_value + ' ' + old_value }
+hash.merge!({ USA: 'Joe', India: 'Narendra' }) { |_key, old_value, new_value| new_value + ' ' + old_value }
 p hash
 
 # flatten
