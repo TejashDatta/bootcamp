@@ -12,11 +12,14 @@ def vehicle_to_wheels(vehicle_name)
   end
 end
 
+vehicle = 'plane'
 begin
-  puts vehicle_to_wheels
+  puts vehicle_to_wheels(vehicle)
 rescue InvalidVehicle => e
   puts e.message
-  puts e.backtrace
+  p e.backtrace
+  vehicle = 'car'
+  retry
 rescue StandardError => e
   puts e.message
 ensure
