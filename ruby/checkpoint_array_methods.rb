@@ -4,6 +4,7 @@ p Array.new
 p []
 p Array.new(5)
 p Array.new(5, 'Eg')
+p Array(3..6)
 
 example_array = Array.new(15) { |index| index + 5 }
 
