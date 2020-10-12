@@ -37,3 +37,33 @@ introduce_self = introduction + name
 puts introduce_self
 
 puts "文字列の繰り返し " * 4
+
+# insert into string
+string = 'Hello'
+string[1] = 'EPP'
+
+string.insert(2, '244')
+string[2, 0] = '244'
+string[1, 3] = 'pen'
+string[2..4] = 'stool'
+p string
+
+# index
+p string.index('non')
+p string.rindex('PP')
+p string.include? 'PP'
+
+string.delete! 'PP'
+puts string
+
+# strip
+string_whitespace = '   hell    ppp     '
+puts string_whitespace.lstrip
+puts string_whitespace.rstrip
+string_whitespace.strip!
+
+# split
+string = 'Tejash, Jack, James, '
+p string.split(', ')
+p string.split(', ', -1)
+p string.split(', ', 2)
