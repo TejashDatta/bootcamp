@@ -1,6 +1,6 @@
 class Wallet
-  def initialize(amount, cards = [])
-    @money = amount
+  def initialize(initial_money = 0, cards = [])
+    @money = initial_money
     @cards = cards
   end
 
