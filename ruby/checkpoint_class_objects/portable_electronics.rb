@@ -8,7 +8,7 @@ class PortableElectronic
   end
 
   def charge
-    puts "#{device_name} is charging."
+    puts "#{@device_name} is charging."
   end
 
   def switch_on
