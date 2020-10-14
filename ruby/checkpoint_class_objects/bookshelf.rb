@@ -1,8 +1,12 @@
 class Bookshelf
-  attr_accessor :genre, :dimensions, :material
+  attr_accessor :genre, :dimensions, :material, :capacity, :shelf_count
 
   def initialize(*books)
     @books = books.dup
+  end
+
+  def volume
+    @dimensions.reduce(1) { |volume, dimension| volume * dimension }
   end
 
   def add_book(book)
@@ -20,7 +24,6 @@ class Bookshelf
   def display_books
     @books.each { |book| puts book }
   end
-
 end
 
 bedroom_bookshelf = Bookshelf.new('Harry Potter', 'Final Fantasy')

@@ -1,5 +1,5 @@
 class Notebook
-  attr_accessor :content
+  attr_accessor :content, :owner, :page_count, :weight
 
   def initialize(content = '')
     @content = content

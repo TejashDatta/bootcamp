@@ -1,4 +1,10 @@
+class InvalidMaterial < RuntimeError
+end
+
 class Wallet
+  attr_reader :material
+  attr_accessor :brand, :color
+
   def initialize(initial_money = 0, cards = [])
     @money = initial_money
     @cards = cards
@@ -22,6 +28,14 @@ class Wallet
 
   def to_s
     "Money: #{@money}, cards: #{@cards.join(', ')}"
+  end
+
+  def material=(material)
+    unless %w[metal cloth leather].includes? material.downcase
+      raise InvalidMaterial, "#{material} is an invalid material"
+    end
+
+    @material = material
   end
 end
 
