@@ -1,31 +1,39 @@
-require_relative 'config'
+require 'date'
+require_relative 'file_manager'
 
 class Event
-  attr_reader :name
-  attr_accessor :date
+  DELIMITER = ';'.freeze
+  attr_reader :name, :date
 
-  def initialize(event_name)
-    @name = event_name
-    @file_path = File.join(Config.data_directory_path, @name)
+  def self.create(name, date)
+    event = new(name, date)
+    FileManager.write(name, event.string_representation)
+    puts %(Event "#{name}" added)
+    event
   end
 
-  def read_from_file
-    File.open(@file_path, 'r') do |event_file|
-      @date = event_file.gets.chomp
-    end
+  def self.delete(name)
+    FileManager.delete(name)
+    puts %(Event "#{name}" deleted)
   end
 
-  def save_to_file
-    File.open(@file_path, 'w') do |event_file|
-      event_file.puts(@date)
-    end
+  def self.new_from_file(file_name)
+    new(*FileManager.read(file_name).split(DELIMITER))
   end
 
-  def delete_file
-    File.delete(@file_path)
+  def initialize(name, date)
+    @name = name
+    @date = Date.parse(date)
   end
 
-  def display_details
-    puts %(Event name: "#{@name}" on date: #{@date})
+  def string_representation
+    [@name, @date.to_s].join(DELIMITER)
+  end
+
+  def display
+    print <<~DATA
+      Name: #{@name}
+        Date: #{@date}
+    DATA
   end
 end
