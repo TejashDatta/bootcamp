@@ -18,3 +18,16 @@ class Calculator
     end
   end
 end
+
+if __FILE__ == $PROGRAM_NAME
+  unless ARGV.size == 3
+    print <<~HELP
+      Use: <operator> <operand1> <operand2>
+      eg: add 3 4
+    HELP
+    exit
+  end
+
+  calculator = Calculator.new(*ARGV)
+  puts calculator.calculate
+end
