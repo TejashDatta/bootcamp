@@ -1,0 +1,11 @@
+any better way to place usage? maybe as constant or from file?
+
+ruby tool 1:
+言われた通りにeventクラスの役割を削りました。
+イベントの時間帯がぶつかるか確認する機能を実装しました。
+
+新しい機能をつける際に、設計は機能を実装しながらもっとも簡単なようにしようとしました。
+例えば、時間帯の機能は、始まり時間と終わり時間を持つオブジェクトやハッシュを使わなくて、ただstart_timeとend_timeを直接にeventクラスに記述しました。
+
+display_on, display_before, display_afterのメッソドはよく似合うので共通化できるかどうか考えましたが、結局そうする簡単な方法を思いつけなかったです。
+
