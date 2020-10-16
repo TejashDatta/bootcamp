@@ -1,39 +1,43 @@
 require 'date'
-require_relative 'file_manager'
+require 'time'
 
 class Event
   DELIMITER = ';'.freeze
-  attr_reader :name, :date
+  attr_reader :name, :date, :start_time, :end_time
 
-  def self.create(name, date)
-    event = new(name, date)
-    FileManager.write(name, event.string_representation)
-    puts %(Event "#{name}" added)
-    event
+  def self.new_from_string_representation(string_representation)
+    new(*string_representation.split(DELIMITER))
   end
 
-  def self.delete(name)
-    FileManager.delete(name)
-    puts %(Event "#{name}" deleted)
-  end
-
-  def self.new_from_file(file_name)
-    new(*FileManager.read(file_name).split(DELIMITER))
-  end
-
-  def initialize(name, date)
+  def initialize(name, date, start_time, end_time)
     @name = name
     @date = Date.parse(date)
+    @start_time = Time.parse(start_time)
+    @end_time = Time.parse(end_time)
+    raise 'End time is before start time' unless @start_time < @end_time
   end
 
   def string_representation
-    [@name, @date.to_s].join(DELIMITER)
+    [@name, @date.to_s, format_time(@start_time), format_time(@end_time)]
+      .join(DELIMITER)
   end
 
   def display
     print <<~DATA
-      Name: #{@name}
-        Date: #{@date}
+      Event: #{@name}
+      ↳ Date: #{@date}
+      ↳ Time slot: #{format_time(@start_time)} - #{format_time(@end_time)}
     DATA
+  end
+
+  def format_time(time)
+    time.strftime('%I:%M%p')
+  end
+
+  def overlaps?(event2)
+    return false if @date != event2.date
+
+    (@start_time < event2.start_time && event2.start_time < @end_time) ||
+      (event2.start_time < @start_time && @start_time < event2.end_time)
   end
 end
