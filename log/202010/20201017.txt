@@ -1,0 +1,12 @@
+ruby tool 2:
+Open weather map (openweathermap.org)のAPIを使って、コマンドラインからある場所の天気の現時点の状態と予測の天気予報を求めるツールです。
+
+機能：
+現時点の天気予報を求める
+予測の天気予報を求める
+オプションで日にちと単位を示す
+
+rubyについて習ったこと：
+http requestの方法、http requestをする様々なgem
+Net::HTTP.get_responseの使い、Net::HTTP.getとの違い
+キーワード引数の利点と使い
