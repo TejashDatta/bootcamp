@@ -13,7 +13,8 @@ class EventManager
     @events.sort_by!(&:date)
   end
 
-  def run_command(command, parameters)
+  def run(argv)
+    command, parameters = argv[0], argv[1..-1]
     case command
     when 'add' then add(*parameters)
     when 'delete'  then delete(*parameters)
@@ -152,5 +153,5 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   event_manager = EventManager.new
-  event_manager.run_command(ARGV[0], ARGV[1..-1])
+  event_manager.run(ARGV)
 end
