@@ -3,25 +3,26 @@ require 'date'
 class Weather
   attr_accessor :data
 
-  def initialize(type:, location:, weather_condition:, temperature:, zone_offset:, time:, units:)
+  def initialize(type:, units:, city:, country:, weather_condition:, temperature:, time:, timezone_offset:)
     @type = type
-    @location = location
+    @units = units
+    @city = city
+    @country = country
     @weather_condition = weather_condition
     @temperature = temperature
-    @zone_offset = zone_offset
     @time = time
-    @units = units
+    @timezone_offset = timezone_offset
   end
 
   def display
     print <<~DATA
-      Weather #{@type} for #{@location} on #{time_string}:
+      Weather #{@type} for #{@city}, #{@country} on #{time_string}:
       #{@weather_condition}  |  #{@temperature} #{temperature_unit}
     DATA
   end
 
   def local_time_in_utc_zone
-    Time.at(@time + @zone_offset).utc
+    Time.at(@time + @timezone_offset).utc
   end
 
   def time_string

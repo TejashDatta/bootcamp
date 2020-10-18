@@ -1,9 +1,10 @@
 require 'net/http'
 require 'json'
+require_relative 'file_management'
 
 class WeatherAPI
   def initialize
-    @api_key = read_api_key.freeze
+    @api_key = FileManagement.read_api_key.freeze
   end
 
   def fetch_report(location, units)
@@ -17,11 +18,6 @@ class WeatherAPI
   end
 
   private
-
-  def read_api_key
-    key_file_path = File.join(File.dirname(__FILE__), 'api_key')
-    File.read(key_file_path).chomp
-  end
 
   def fetch(endpoint)
     response = Net::HTTP.get_response(URI(endpoint))
