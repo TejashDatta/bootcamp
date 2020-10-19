@@ -7,10 +7,7 @@ class EventManager
 
   def initialize
     @events = []
-    FileManager.list_all.each do |event_file_name|
-      @events.push(read(event_file_name))
-    end
-    @events.sort_by!(&:date)
+    read_all
   end
 
   def run(argv)
@@ -30,6 +27,13 @@ class EventManager
     when 'reset' then FileManager.reset
     else display_usage
     end
+  end
+
+  def read_all
+    FileManager.list_all.each do |event_file_name|
+      @events.push(read(event_file_name))
+    end
+    @events.sort_by!(&:date)
   end
 
   def add(name, date, start_time, end_time)
