@@ -1,10 +1,9 @@
 require 'net/http'
 require 'json'
-require_relative 'file_management'
 
 class WeatherAPI
   def initialize
-    @api_key = FileManagement.read_api_key.freeze
+    @api_key = ENV['WEATHER_API_KEY']
   end
 
   def fetch_report(location, units)
