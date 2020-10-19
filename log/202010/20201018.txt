@@ -1,0 +1,3 @@
+ruby tool 2:
+default locationを設定できる機能を追加しました
+set-locationコマンドを実装しました
