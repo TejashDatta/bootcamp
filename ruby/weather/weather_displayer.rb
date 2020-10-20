@@ -1,7 +1,7 @@
-require 'date'
-require 'time'
 require_relative 'weather_api'
 require_relative 'file_management'
+require_relative 'report'
+require_relative 'forecast'
 
 class WeatherDisplayer
   DEFAULT_UNITS = 'metric'.freeze
@@ -34,52 +34,46 @@ class WeatherDisplayer
     check_location_is_set(location)
 
     data = @weather_api.fetch_report(location, units)
-    city = data['name']
-    country = data['sys']['country']
-    weather_condition = data['weather'][0]['description']
-    temperature = data['main']['temp']
-    time = format_time(data['dt'])
-
-    print <<~DATA
-      Weather report for #{city}, #{country} on #{time}:
-      #{weather_condition} | #{temperature}
-    DATA
+    report = Report.new(data)
+    report.display
   end
 
   def display_forecast(location: @default_location, units: DEFAULT_UNITS, date: nil)
     check_location_is_set(location)
 
     data = @weather_api.fetch_forecast(location, units)
-    city = data['city']['name']
-    country = data['city']['country']
-    puts "Weather forecast for #{city}, #{country}:"
-
-    forecast_entries = if date.nil?
-                         data['list']
-                       else
-                         select_forecast_entries_for_date(data['list'], date)
-                       end
-
-    display_forecast_entries(forecast_entries)
+    forecast = Forecast.new(data)
+    forecast.select_for_date!(date) unless date.nil?
+    forecast.display
   end
 
-  def format_time(time)
-    Time.at(time).utc.strftime('%a, %-d %b at %H:%M (UTC)')
-  end
+  def display_usage
+    print <<~USAGE
+      Available commands:
 
-  def select_forecast_entries_for_date(entries, date_string)
-    entries.select do |entry|
-      Time.at(entry['dt']).to_date == Date.parse(date_string)
-    end
-  end
+      set-location <location>
+      Description: Sets and saves the default location
+      eg. set-location tokyo
 
-  def display_forecast_entries(entries)
-    entries.each do |entry|
-      weather_condition = entry['weather'][0]['description']
-      temperature = entry['main']['temp']
-      time = format_time(entry['dt'])
-      puts "#{time}: #{weather_condition} | #{temperature}"
-    end
+      report <options>
+      Description: Shows the current weather condition for the default location
+      
+        Available options:
+        location = Overrides default location
+        units = metric (default) / imperial / standard
+        
+      eg. report units=imperial location='san francisco'
+
+      forecast <options>
+      Description: Shows the weather forecast of the next 5 days for the default location
+      
+        Available options:
+        location = Overrides default location
+        units = <metric (default) / imperial / standard>
+        date = <dd/mm/yyyy / yyyy.mm.dd /etc. format (in UTC)> Limits forecast to one date
+
+      eg. forecast date=22.10.2020
+    USAGE
   end
 
   private
