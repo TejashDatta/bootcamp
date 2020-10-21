@@ -155,7 +155,7 @@ class EventManager
   end
 end
 
-if __FILE__ == $PROGRAM_NAME
+if __FILE__ == $0
   event_manager = EventManager.new
   event_manager.run(ARGV)
 end
