@@ -1,30 +1,30 @@
-require 'net/http'
+require 'open-uri'
 require 'json'
 
 class WeatherAPI
-  REPORT_ENDPOINT = 'http://api.openweathermap.org/data/2.5/weather'.freeze
-  FORECAST_ENDPOINT = 'http://api.openweathermap.org/data/2.5/forecast'.freeze
+  CURRENT_BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'.freeze
+  FORECAST_BASE_URL = 'http://api.openweathermap.org/data/2.5/forecast'.freeze
+  UNITS = 'metric'.freeze
 
   def initialize
     @api_key = ENV['WEATHER_API_KEY']
   end
 
-  def fetch_report(location, units)
-    fetch(REPORT_ENDPOINT, location, units)
+  def fetch_current(location)
+    fetch(build_url(CURRENT_BASE_URL, location))
   end
 
-  def fetch_forecast(location, units)
-    fetch(FORECAST_ENDPOINT, location, units)
+  def fetch_forecast(location)
+    fetch(build_url(FORECAST_BASE_URL, location))
   end
 
   private
 
-  def fetch(endpoint, location, units)
-    query = "q=#{location}&APPID=#{@api_key}&units=#{units}"
-    uri = "#{endpoint}?#{query}"
-    response = Net::HTTP.get_response(URI(uri))
-    raise 'Retrieval failed' unless response.code == '200'
+  def build_url(base_url, location)
+    "#{base_url}?q=#{location}&APPID=#{@api_key}&units=#{UNITS}"
+  end
 
-    JSON.parse(response.body)
+  def fetch(url)
+    JSON.parse(URI.open(url).read)
   end
 end
