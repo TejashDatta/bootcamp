@@ -1,26 +1,34 @@
-require_relative 'weather_api'
-require_relative 'weather_data'
+require_relative 'api_client'
+require_relative 'weather'
 
 class WeatherInterface
   def initialize
-    @weather_api = WeatherAPI.new
+    @api_client = APIClient.new
   end
 
   def run(argv)
     case argv[0]
-    when 'current' then display_current(argv[1])
-    when 'forecast' then display_forecast(argv[1])
+    when 'current' then display_current(argv[1], argv[2])
+    when 'forecast' then display_forecast(argv[1], argv[2])
     else display_usage
     end
   end
 
-  def display_current(location)
-    display(@weather_api.fetch_current(location))
+  def display_current(location, unit)
+    display(@api_client.fetch_current(location, unit_name(unit)))
   end
 
-  def display_forecast(location)
-    select_data_list(@weather_api.fetch_forecast(location)).each do |data|
+  def display_forecast(location, unit)
+    select_forecast_list(@api_client.fetch_forecast(location, unit_name(unit))).each do |data|
       display(data)
+    end
+  end
+
+  def unit_name(unit)
+    case unit.upcase
+    when 'C' then 'metric'
+    when 'F' then 'imperial'
+    when 'K' then 'standard'
     end
   end
 
@@ -33,7 +41,7 @@ class WeatherInterface
   end
 
   def create(data)
-    WeatherData.new(
+    Weather.new(
       time: Time.at(data['dt']),
       weather_condition: data['weather'][0]['description'],
       temperature: data['main']['temp']
@@ -42,12 +50,14 @@ class WeatherInterface
 
   def display_usage
     print <<~USAGE
-      current <location>
+      current <location> <unit>
       Description: Current weather report
+      Unit: C / F / K
       eg. current kolkata
 
-      forecast <location>
+      forecast <location> <unit>
       Description: Weather forecast
+      Unit: C / F / K
       eg. forecast kolkata
     USAGE
   end

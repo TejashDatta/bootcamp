@@ -1,4 +1,4 @@
-class WeatherData
+class Weather
   def initialize(time:, weather_condition:, temperature:)
     @time = Time.at(time)
     @weather_condition = weather_condition
