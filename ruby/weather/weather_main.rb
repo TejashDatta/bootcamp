@@ -2,7 +2,7 @@ require_relative 'weather_api_client'
 require_relative 'weather'
 require_relative 'file_management'
 
-class Interface
+class WeatherMain
   def initialize
     @api_client = WeatherAPIClient.new
   end
@@ -34,7 +34,7 @@ class Interface
     select_entries_for_date(
       @api_client.fetch_forecast(location, unit_name(unit)),
       date
-    ).each { |data| display(data) }
+    ).each { |weather_json| display(weather_json) }
   end
 
   def display_default_current(unit)
@@ -53,19 +53,21 @@ class Interface
     end
   end
 
-  def select_entries_for_date(data, date)
-    data['list'].select { |entry| Time.at(entry['dt']).to_date == Date.parse(date) }
+  def select_entries_for_date(forecast_json, date)
+    forecast_json['list'].select do |weather_json|
+      Time.at(weather_json['dt']).to_date == Date.parse(date)
+    end
   end
 
-  def display(data)
-    create(data).display
+  def display(weather_json)
+    create(weather_json).display
   end
 
-  def create(data)
+  def create(weather_json)
     Weather.new(
-      time: Time.at(data['dt']),
-      weather_condition: data['weather'][0]['description'],
-      temperature: data['main']['temp']
+      time: Time.at(weather_json['dt']),
+      weather_condition: weather_json['weather'][0]['description'],
+      temperature: weather_json['main']['temp']
     )
   end
 
@@ -96,6 +98,6 @@ class Interface
 end
 
 if __FILE__ == $0
-  interface = Interface.new
-  interface.run(ARGV)
+  weather_main = WeatherMain.new
+  weather_main.run(ARGV)
 end
