@@ -1,8 +1,7 @@
 require_relative 'weather_api_client'
-require_relative 'weather'
 require_relative 'file_management'
 
-class WeatherMain
+class WeatherDisplayer
   def initialize
     @api_client = WeatherAPIClient.new
   end
@@ -27,14 +26,11 @@ class WeatherMain
   end
 
   def display_current(location, unit)
-    display(@api_client.fetch_current(location, unit_name(unit)))
+    @api_client.fetch_current(location, unit_name(unit)).display
   end
 
   def display_forecast(location, unit, date)
-    select_entries_for_date(
-      @api_client.fetch_forecast(location, unit_name(unit)),
-      date
-    ).each { |weather_json| display(weather_json) }
+    @api_client.fetch_forecast(location, unit_name(unit), date).each(&:display)
   end
 
   def display_default_current(unit)
@@ -51,24 +47,6 @@ class WeatherMain
     when 'F' then 'imperial'
     when 'K' then 'standard'
     end
-  end
-
-  def select_entries_for_date(forecast_json, date)
-    forecast_json['list'].select do |weather_json|
-      Time.at(weather_json['dt']).to_date == Date.parse(date)
-    end
-  end
-
-  def display(weather_json)
-    create(weather_json).display
-  end
-
-  def create(weather_json)
-    Weather.new(
-      time: Time.at(weather_json['dt']),
-      weather_condition: weather_json['weather'][0]['description'],
-      temperature: weather_json['main']['temp']
-    )
   end
 
   def display_usage
@@ -98,6 +76,6 @@ class WeatherMain
 end
 
 if __FILE__ == $0
-  weather_main = WeatherMain.new
-  weather_main.run(ARGV)
+  weather_displayer = WeatherDisplayer.new
+  weather_displayer.run(ARGV)
 end
