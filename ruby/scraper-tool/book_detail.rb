@@ -1,9 +1,9 @@
 class BookDetail
-  def initialize(html_node)
-    @title = html_node.at('h1').text
-    @price = html_node.at('p.price_color').text
-    @availability = html_node.at('.availability').text.strip
-    @description = html_node.at('#product_description').next_sibling.next_sibling.text
+  def initialize(title:, price:, availability:, description:)
+    @title = title
+    @price = price
+    @availability = availability
+    @description = description
   end
 
   def display
