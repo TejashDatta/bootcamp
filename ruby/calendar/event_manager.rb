@@ -11,7 +11,7 @@ class EventManager
   end
 
   def run(argv)
-    command, parameters = argv[0], argv[1..-1]
+    command, parameters = argv.first, argv[1..-1]
     case command
     when 'add' then add(*parameters)
     when 'delete'  then delete(*parameters)
@@ -49,7 +49,7 @@ class EventManager
   end
 
   def select(name)
-    @events.select { |event| event.name == name }[0]
+    @events.select { |event| event.name == name }.first
   end
 
   def display(name)
