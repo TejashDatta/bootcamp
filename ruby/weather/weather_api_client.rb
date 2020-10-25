@@ -14,7 +14,7 @@ class WeatherAPIClient
   end
 
   def forecast(location, units, date)
-    fetch_and_parse_weather_of_type('forecast', location, units)
+    fetch_and_parse_weather_of_type('forecast', location, units)['list']
       .map { |forecast_entry| create_weather(forecast_entry) }
       .select { |weather| weather.time.to_date == Date.parse(date) }
   end

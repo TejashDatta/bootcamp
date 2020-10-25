@@ -1,4 +1,6 @@
 class Weather
+  attr_accessor :time
+
   def initialize(time:, weather_condition:, temperature:)
     @time = Time.at(time)
     @weather_condition = weather_condition
