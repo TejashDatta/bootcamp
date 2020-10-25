@@ -30,9 +30,7 @@ class EventManager
   end
 
   def read_all
-    FileManager.list_all.each do |event_file_name|
-      @events.push(read(event_file_name))
-    end
+    @events = FileManager.list_all.map { |event_file_name| read(event_file_name) }
     @events.sort_by!(&:date)
   end
 
