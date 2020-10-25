@@ -34,10 +34,10 @@ class Event
     time.strftime('%I:%M%p')
   end
 
-  def overlaps?(event2)
-    return false if @date != event2.date
+  def overlaps?(other)
+    return false if @date != other.date
 
-    (@start_time < event2.start_time && event2.start_time < @end_time) ||
-      (event2.start_time < @start_time && @start_time < event2.end_time)
+    (@start_time < other.start_time && other.start_time < @end_time) ||
+      (other.start_time < @start_time && @start_time < other.end_time)
   end
 end
