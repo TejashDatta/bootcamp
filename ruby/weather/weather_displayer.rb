@@ -7,7 +7,7 @@ class WeatherDisplayer
   end
 
   def run(argv)
-    case argv[0]
+    case argv.first
     when 'set-default' then set_default_location(argv[1])
     when 'current' then display_current(argv[1], argv[2])
     when 'default-current' then display_default_current(argv[1])
@@ -26,11 +26,11 @@ class WeatherDisplayer
   end
 
   def display_current(location, unit)
-    @api_client.fetch_current(location, unit_name(unit)).display
+    @api_client.current(location, unit_name(unit)).display
   end
 
   def display_forecast(location, unit, date)
-    @api_client.fetch_forecast(location, unit_name(unit), date).each(&:display)
+    @api_client.forecast(location, unit_name(unit), date).each(&:display)
   end
 
   def display_default_current(unit)

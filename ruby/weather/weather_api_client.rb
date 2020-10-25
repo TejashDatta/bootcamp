@@ -9,22 +9,19 @@ class WeatherAPIClient
     @api_key = ENV['WEATHER_API_KEY']
   end
 
-  def fetch_current(location, units)
-    create_weather(fetch_hash('weather', location, units))
+  def current(location, units)
+    create_weather(fetch_and_parse_weather_of_type('weather', location, units))
   end
 
-  def fetch_forecast(location, units, date)
-    forecast_array = []
-    select_forecast_entries_for_date(
-      fetch_hash('forecast', location, units),
-      date
-    ).each { |weather_hash| forecast_array << create_weather(weather_hash) }
-    forecast_array
+  def forecast(location, units, date)
+    fetch_and_parse_weather_of_type('forecast', location, units)
+      .map { |forecast_entry| create_weather(forecast_entry) }
+      .select { |weather| weather.time.to_date == Date.parse(date) }
   end
 
   private
 
-  def fetch_hash(type, location, units)
+  def fetch_and_parse_weather_of_type(type, location, units)
     JSON.parse(read_url(build_url(type, location, units)))
   end
 
@@ -36,17 +33,11 @@ class WeatherAPIClient
     URI.open(url).read
   end
 
-  def create_weather(weather_hash)
+  def create_weather(parsed_weather_json)
     Weather.new(
-      time: Time.at(weather_hash['dt']),
-      weather_condition: weather_hash['weather'][0]['description'],
-      temperature: weather_hash['main']['temp']
+      time: Time.at(parsed_weather_json['dt']),
+      weather_condition: parsed_weather_json['weather'][0]['description'],
+      temperature: parsed_weather_json['main']['temp']
     )
-  end
-
-  def select_forecast_entries_for_date(forecast_hash, date)
-    forecast_hash['list'].select do |weather_hash|
-      Time.at(weather_hash['dt']).to_date == Date.parse(date)
-    end
   end
 end
