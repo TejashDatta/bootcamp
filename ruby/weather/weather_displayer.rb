@@ -26,11 +26,11 @@ class WeatherDisplayer
   end
 
   def display_current(location, unit)
-    @api_client.current_weather(location, unit_name(unit)).display
+    @api_client.weather_current(location, unit_name(unit)).display
   end
 
   def display_forecast(location, unit, date)
-    @api_client.forecast_weather_entries(location, unit_name(unit), date).each(&:display)
+    @api_client.weather_forecasts(location, unit_name(unit), date).each(&:display)
   end
 
   def display_default_current(unit)
