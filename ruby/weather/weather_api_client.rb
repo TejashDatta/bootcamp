@@ -14,8 +14,8 @@ class WeatherAPIClient
   end
 
   def weather_forecasts(location, units, date)
-    parse_forecast(fetch_weather_json('forecast', location, units))
-      .map { |forecast_entry| create_weather(forecast_entry) }
+    parse_forecasts(fetch_weather_json('forecast', location, units))
+      .map { |forecast_parsed_json| create_weather(forecast_parsed_json) }
       .select { |weather| weather.time.to_date == Date.parse(date) }
   end
 
@@ -25,7 +25,7 @@ class WeatherAPIClient
     JSON.parse(json)
   end
 
-  def parse_forecast(json)
+  def parse_forecasts(json)
     JSON.parse(json)['list']
   end
 
@@ -37,11 +37,11 @@ class WeatherAPIClient
     "#{type}/?q=#{location}&APPID=#{@api_key}&units=#{units}"
   end
 
-  def create_weather(parsed_weather_json)
+  def create_weather(weather_parsed_json)
     Weather.new(
-      time: Time.at(parsed_weather_json['dt']),
-      weather_condition: parsed_weather_json['weather'][0]['description'],
-      temperature: parsed_weather_json['main']['temp']
+      time: Time.at(weather_parsed_json['dt']),
+      weather_condition: weather_parsed_json['weather'][0]['description'],
+      temperature: weather_parsed_json['main']['temp']
     )
   end
 end
