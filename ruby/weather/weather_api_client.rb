@@ -10,27 +10,31 @@ class WeatherAPIClient
   end
 
   def current(location, units)
-    create_weather(fetch_and_parse_weather_of_type('weather', location, units))
+    create_weather(parse_current(fetch_weather_of_type('weather', location, units)))
   end
 
   def forecast(location, units, date)
-    fetch_and_parse_weather_of_type('forecast', location, units)['list']
+    parse_forecast(fetch_weather_of_type('forecast', location, units))
       .map { |forecast_entry| create_weather(forecast_entry) }
       .select { |weather| weather.time.to_date == Date.parse(date) }
   end
 
   private
 
-  def fetch_and_parse_weather_of_type(type, location, units)
-    JSON.parse(read_url(build_url(type, location, units)))
+  def parse_current(json)
+    JSON.parse(json)
   end
 
-  def build_url(type, location, units)
-    "#{File.join(BASE_URL, type)}?q=#{location}&APPID=#{@api_key}&units=#{units}"
+  def parse_forecast(json)
+    JSON.parse(json)['list']
   end
 
-  def read_url(url)
-    URI.open(url).read
+  def fetch_weather_of_type(type, location, units)
+    URI.open(File.join(BASE_URL, query(type, location, units))).read
+  end
+
+  def query(type, location, units)
+    "#{type}/?q=#{location}&APPID=#{@api_key}&units=#{units}"
   end
 
   def create_weather(parsed_weather_json)
