@@ -9,12 +9,12 @@ class WeatherAPIClient
     @api_key = ENV['WEATHER_API_KEY']
   end
 
-  def current(location, units)
-    create_weather(parse_current(fetch_weather_of_type('weather', location, units)))
+  def current_weather(location, units)
+    create_weather(parse_current(fetch_weather_json('weather', location, units)))
   end
 
-  def forecast(location, units, date)
-    parse_forecast(fetch_weather_of_type('forecast', location, units))
+  def forecast_weather_entries(location, units, date)
+    parse_forecast(fetch_weather_json('forecast', location, units))
       .map { |forecast_entry| create_weather(forecast_entry) }
       .select { |weather| weather.time.to_date == Date.parse(date) }
   end
@@ -29,7 +29,7 @@ class WeatherAPIClient
     JSON.parse(json)['list']
   end
 
-  def fetch_weather_of_type(type, location, units)
+  def fetch_weather_json(type, location, units)
     URI.open(File.join(BASE_URL, query(type, location, units))).read
   end
 
