@@ -11,7 +11,7 @@ class EventManager
   end
 
   def run(argv)
-    command, parameters = argv[0], argv[1..-1]
+    command, parameters = argv.first, argv[1..-1]
     case command
     when 'add' then add(*parameters)
     when 'delete'  then delete(*parameters)
@@ -30,9 +30,7 @@ class EventManager
   end
 
   def read_all
-    FileManager.list_all.each do |event_file_name|
-      @events.push(read(event_file_name))
-    end
+    @events = FileManager.list_all.map { |event_file_name| read(event_file_name) }
     @events.sort_by!(&:date)
   end
 
@@ -49,7 +47,7 @@ class EventManager
   end
 
   def select(name)
-    @events.select { |event| event.name == name }[0]
+    @events.select { |event| event.name == name }.first
   end
 
   def display(name)
