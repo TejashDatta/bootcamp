@@ -1,4 +1,4 @@
-class BookListItem
+class BookBasic
   def initialize(title:, slug:, stars:, price:)
     @title = title
     @slug = slug
