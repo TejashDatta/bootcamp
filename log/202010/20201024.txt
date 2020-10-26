@@ -1,0 +1,4 @@
+https://github.com/rubocop-hq/ruby-style-guide を改めて通読しました。
+
+ruby について学んだこと：
+each_with_objectメッソド
