@@ -5,9 +5,12 @@ class Book
     %w[title slug stars price].join(CSV_DELIMITER)
   end
 
-  def initialize(title:, slug:, stars:, price:, availability: '', description: '')
+  attr_reader :title, :picture_url
+
+  def initialize(title:, slug:, picture_url:, stars:, price:, availability: '', description: '')
     @title = title
     @slug = slug
+    @picture_url = picture_url
     @stars = stars
     @price = price
     @availability = availability
