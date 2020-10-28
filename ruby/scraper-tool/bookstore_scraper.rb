@@ -6,7 +6,8 @@ require_relative 'file_management'
 
 class BookstoreScraper
   BASE_URL = 'http://books.toscrape.com/'.freeze
-  CATEGORY_BASE_URL = File.join(BASE_URL, 'catalogue/category/books')
+  ALL_BOOKS_BASE_URL = File.join(BASE_URL, 'catalogue/category/books_1')
+  CATEGORY_BOOKS_BASE_URL = File.join(BASE_URL, 'catalogue/category/books')
   BOOK_BASE_URL = File.join(BASE_URL, 'catalogue')
 
   def initialize
@@ -38,7 +39,7 @@ class BookstoreScraper
   end
 
   def display_books_of_category(category_slug)
-    @books = books_from_catalogue(parse_html(File.join(CATEGORY_BASE_URL, category_slug)))
+    @books = books_from_catalogue(parse_html(File.join(CATEGORY_BOOKS_BASE_URL, category_slug)))
     @books.each(&:display_brief)
   end
 
@@ -58,19 +59,19 @@ class BookstoreScraper
   end
 
   def save_all_books_csv_with_thumbnails
-    retrieve_all_books
+    get_all_books
     books_to_csv
-    save_book_thumbnails
+    save_thumbnails_of_books
   end
 
-  def retrieve_all_books
+  def get_all_books
     current_page = 1
     loop do
       catalogue_parsed_html = parse_html(all_books_url(current_page))
       @books.concat(books_from_catalogue(catalogue_parsed_html))
 
-      @catalogue_page_count ||=
-        catalogue_parsed_html.search('.pager .current').text.strip.split(' ').last.to_i
+      @catalogue_page_count ||= extract_catalogue_page_count(catalogue_parsed_html)
+
       break if current_page == @catalogue_page_count
 
       current_page += 1
@@ -78,7 +79,11 @@ class BookstoreScraper
   end
 
   def all_books_url(page_number)
-    File.join(BASE_URL, "catalogue/category/books_1/page-#{page_number}.html")
+    File.join(ALL_BOOKS_BASE_URL, "page-#{page_number}.html")
+  end
+
+  def extract_catalogue_page_count(catalogue_parsed_html)
+    catalogue_parsed_html.search('.pager .current').text.strip.split(' ').last.to_i
   end
 
   def books_to_csv
@@ -88,7 +93,7 @@ class BookstoreScraper
     end
   end
 
-  def save_book_thumbnails
+  def save_thumbnails_of_books
     @books.each { |book| FileManagement.save_thumbnail(book.title, URI.open(book.image_url).read) }
   end
 
@@ -105,27 +110,27 @@ class BookstoreScraper
         )
       end
   end
-
-  def display_usage
-    print <<~USAGE
-      display-categories
-      Description: Shows available book categories with their url slug
-
-      display-books-of-category <category slug>
-      Description: List all books of a specific category
-      category slug: obtained from view-categories command
-      
-      display-book <book slug>
-      Description: View detailed data about a book
-      book slug: obtained from list-books command
-
-      save-all-books-csv-with-thumbnails
-      Description: Save all books into CSV file with thumbnails
-    USAGE
-  end
 end
 
 if __FILE__ == $0
   bookstore_scraper = BookstoreScraper.new
   bookstore_scraper.run(*ARGV)
+end
+
+def display_usage
+  print <<~USAGE
+    display-categories
+    Description: Shows available book categories with their url slug
+
+    display-books-of-category <category slug>
+    Description: List all books of a specific category
+    category slug: obtained from view-categories command
+    
+    display-book <book slug>
+    Description: View detailed data about a book
+    book slug: obtained from list-books command
+
+    save-all-books-csv-with-thumbnails
+    Description: Save all books into CSV file with thumbnails
+  USAGE
 end
