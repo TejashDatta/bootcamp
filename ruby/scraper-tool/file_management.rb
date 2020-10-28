@@ -5,7 +5,7 @@ module FileManagement
   module_function
 
   def open_write(file_name)
-    File.open(File.join(BASE_PATH, file_name), 'w')
+    File.open(File.join(BASE_PATH, file_name), 'w') { |file| yield file }
   end
 
   def save_thumbnail(name, content, extension = '.jpeg')
@@ -13,6 +13,6 @@ module FileManagement
       Dir.mkdir(THUMBNAIL_DIRECTORY_PATH)
     end
 
-    File.write(File.join(THUMBNAIL_DIRECTORY_PATH, name + extension), content)
+    File.write(File.join(THUMBNAIL_DIRECTORY_PATH, name.gsub('/', ' ') + extension), content)
   end
 end

@@ -1,18 +1,18 @@
 class Book
-  CSV_DELIMITER = ';'.freeze
+  CSV_DELIMITER = ','.freeze
 
   def self.csv_header
     %w[title slug stars price].join(CSV_DELIMITER)
   end
 
-  attr_reader :title, :picture_url
+  attr_reader :title, :image_url
 
-  def initialize(title:, slug:, picture_url:, stars:, price:, availability: '', description: '')
+  def initialize(title:, image_url:, stars:, price:, slug: '', availability: '', description: '')
     @title = title
-    @slug = slug
-    @picture_url = picture_url
+    @image_url = image_url
     @stars = stars
     @price = price
+    @slug = slug
     @availability = availability
     @description = description
   end
@@ -38,6 +38,6 @@ class Book
   end
 
   def csv_representation
-    [@title, @slug, @stars, @price].join(CSV_DELIMITER)
+    [%("#{@title}"), @slug, @stars, @price].join(CSV_DELIMITER)
   end
 end
