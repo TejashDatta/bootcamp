@@ -19,7 +19,7 @@ class BookstoreScraper
     when 'display-categories' then display_categories
     when 'display-books-of-category' then display_books_of_category(slug)
     when 'display-book' then display_book(slug)
-    when 'save-all-books' then save_all_books_csv_with_thumbnails
+    when 'save-all-books-csv-with-thumbnails' then save_all_books_csv_with_thumbnails
     else display_usage
     end
   end
@@ -108,18 +108,18 @@ class BookstoreScraper
 
   def display_usage
     print <<~USAGE
-      view-categories
+      display-categories
       Description: Shows available book categories with their url slug
 
-      list-books <category slug>
+      display-books-of-category <category slug>
       Description: List all books of a specific category
       category slug: obtained from view-categories command
       
-      view-book <book slug>
+      display-book <book slug>
       Description: View detailed data about a book
       book slug: obtained from list-books command
 
-      save-all
+      save-all-books-csv-with-thumbnails
       Description: Save all books into CSV file with thumbnails
     USAGE
   end
