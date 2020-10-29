@@ -5,14 +5,24 @@ require_relative 'book'
 require_relative 'file_management'
 
 class BookstoreScraper
-  BASE_URL = 'http://books.toscrape.com/'.freeze
-  ALL_BOOKS_BASE_URL = File.join(BASE_URL, 'catalogue/category/books_1')
-  CATEGORY_BOOKS_BASE_URL = File.join(BASE_URL, 'catalogue/category/books')
-  BOOK_BASE_URL = File.join(BASE_URL, 'catalogue')
+  WEBSITE_URL = 'http://books.toscrape.com/'.freeze
 
   def initialize
     @books = []
     @catalogue_page_count = nil
+    @base_urls = {
+      root: '',
+      all_books: 'catalogue/category/books_1',
+      category_books: 'catalogue/category/books',
+      book: 'catalogue'
+    }
+    prepend_website_to_base_urls
+  end
+
+  def prepend_website_to_base_urls
+    @base_urls.each do |url_name, relative_path|
+      @base_urls[url_name] = File.join(WEBSITE_URL, relative_path)
+    end
   end
 
   def run(command, slug = nil)
@@ -30,7 +40,7 @@ class BookstoreScraper
   end
 
   def display_categories
-    parse_html(BASE_URL).search('.side_categories li ul a').each do |anchor_tag|
+    parse_html(@base_urls[:root]).search('.side_categories li ul a').each do |anchor_tag|
       Category.new(
         name: anchor_tag.text.strip,
         slug: anchor_tag['href'].split('/')[-2]
@@ -39,12 +49,12 @@ class BookstoreScraper
   end
 
   def display_books_of_category(category_slug)
-    @books = books_from_catalogue(parse_html(File.join(CATEGORY_BOOKS_BASE_URL, category_slug)))
+    @books = books_from_catalogue(parse_html(File.join(@base_urls[:category_books], category_slug)))
     @books.each(&:display_brief)
   end
 
   def display_book(book_slug)
-    book_from_product_page(parse_html(File.join(BOOK_BASE_URL, book_slug))).display_detail
+    book_from_product_page(parse_html(File.join(@base_urls[:book], book_slug))).display_detail
   end
 
   def book_from_product_page(book_parsed_html)
@@ -79,7 +89,7 @@ class BookstoreScraper
   end
 
   def all_books_url(page_number)
-    File.join(ALL_BOOKS_BASE_URL, "page-#{page_number}.html")
+    File.join(@base_urls[:all_books], "page-#{page_number}.html")
   end
 
   def extract_catalogue_page_count(catalogue_parsed_html)
@@ -110,27 +120,27 @@ class BookstoreScraper
         )
       end
   end
+
+  def display_usage
+    print <<~USAGE
+      display-categories
+      Description: Shows available book categories with their url slug
+
+      display-books-of-category <category slug>
+      Description: List all books of a specific category
+      category slug: obtained from view-categories command
+      
+      display-book <book slug>
+      Description: View detailed data about a book
+      book slug: obtained from list-books command
+
+      save-all-books-csv-with-thumbnails
+      Description: Save all books into CSV file with thumbnails
+    USAGE
+  end
 end
 
 if __FILE__ == $0
   bookstore_scraper = BookstoreScraper.new
   bookstore_scraper.run(*ARGV)
-end
-
-def display_usage
-  print <<~USAGE
-    display-categories
-    Description: Shows available book categories with their url slug
-
-    display-books-of-category <category slug>
-    Description: List all books of a specific category
-    category slug: obtained from view-categories command
-    
-    display-book <book slug>
-    Description: View detailed data about a book
-    book slug: obtained from list-books command
-
-    save-all-books-csv-with-thumbnails
-    Description: Save all books into CSV file with thumbnails
-  USAGE
 end
