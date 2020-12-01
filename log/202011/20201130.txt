@@ -1,0 +1,20 @@
+作業内容：
+Rubyの本を1147ページ中870ページまで読みました
+正規表現の関数とexerciseを練習しました
+予定時間：7時半
+実績時間：9時間
+
+
+Rubyの本から学んだ、復習した内容：
+open class, monkey patch
+特異メソッド
+duck typing
+module
+include, extend の違い
+Comparable, Enumerable, Kernal module
+top level, main object
+namespace
+singleton pattern
+メソッド検索の順番
+refinements
+例外処理の文法
