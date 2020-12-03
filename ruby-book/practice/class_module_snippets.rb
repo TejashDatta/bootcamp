@@ -26,9 +26,9 @@ undef method
 # monkey patch
 
 class String
-    def p
-      p self
-    end
+  def p
+    p self
+  end
 end
 
 # singleton
