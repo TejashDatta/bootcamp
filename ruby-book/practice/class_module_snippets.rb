@@ -1,14 +1,3 @@
-# self.class.classmethods
-# instance_of?
-# is_a? kind_of?
-
-# super override in normal methods
-
-# class methods private
-
-# class instance variable vs class variable
-
-
 # call class method within instance method
 self.class.classmethod
 
