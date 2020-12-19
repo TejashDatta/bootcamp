@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <img src="resources/car.jpg" alt="car" width="200" height="200" usemap="#example-map">
+    <map name="example-map">
+      <area shape="rect" coords="0, 0, 30, 30" href="#" alt="rectangle">
+      <area shape="circle" coords="170, 20, 20" href="#" alt="circle">
+      <area shape="poly" coords="0, 170, 30, 170, 15, 190" href="#" onclick="myFunction()" alt="triangle">
+    </map>
+
+    <script>
+      function myFunction() {
+        alert("clicked triangle");
+      }
+    </script>
+  </body>
+</html>
