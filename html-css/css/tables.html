@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        width: 100%;
+      }
+      th {
+        background-color: lightpink;
+      }
+      tr:nth-child(even) {
+        background-color: lightgray;
+      }
+      td {
+        text-align: center;
+      }
+      th, td {
+        height: 70px;
+        vertical-align: top;
+      }
+      table, th, td {
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>table caption</caption>
+      <tr>
+        <th>column 1</th>
+        <th colspan="2">column 2 & 3</th>
+      </tr>
+      <tr>
+        <td>cell 1</td>
+        <td rowspan="2">cell 2</td>
+        <td>cell 3</td>
+      </tr>
+      <tr>
+        <td>cell 4</td>
+        <td>cell 5</td>
+      </tr>
+      <tr>
+        <td>cell</td>
+        <td>cell</td>
+        <td>cell</td>
+      </tr>
+    </table>
+  </body>
+</html>
