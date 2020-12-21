@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+    Name: <input type="text" name="fname">
+    Number (1-10): <input id="number">
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      var name = document.forms["myForm"]["fname"].value;
+      var number = document.forms["myForm"]["number"].value;
+      if (name == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+      if (isNaN(number) || x < 1 || x > 10) {
+        alert("Invalid number");
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>
