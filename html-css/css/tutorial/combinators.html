@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      div p {
+        color: grey;
+      }   
+      div > p {
+        color: blue;
+      }  
+      div ~ p {
+        color: rebeccapurple;
+      }
+      div + p {
+        color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>blue</p>
+      <section><p>grey</p></section>
+    </div>
+    <p>tomato</p>
+    <p>purple</p>
+  </body>
+</html>
