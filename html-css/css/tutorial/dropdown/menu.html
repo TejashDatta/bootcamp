@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .dropdown {
+        position: relative;
+        display: inline;
+      }
+      .dropdown button {
+        background-color: hotpink;
+        color: white;
+        padding: 10px 20px;
+      }
+      .dropdown .content {
+        display: none;
+        position: absolute;
+        border: 1px solid black;
+        z-index: 1;
+      }
+      .dropdown:hover .content {
+        display: block;
+      }
+      .dropdown .content a {
+        background-color: lightgrey;
+        display: block;
+        padding: 10px 20px;
+      }
+      .dropdown .content a:hover {
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button>menu</button>
+      <div class="content">
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+      </div>
+    </div>
+  </body>
+</html>
