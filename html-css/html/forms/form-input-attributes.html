@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <body>
+    <form action="action-page" id="form1" method="POST">
+      <input type="submit" value="Submit" >
+      <input type="submit" formenctype="multipart/form-data" value="Submit as multipart form data">
+      <input type="submit" formmethod="GET" value="Submit as GET">
+      <input type="submit" formtarget="_blank" value="Submit as _blank">
+      <input type="submit" formnovalidate value="Submit without validation">
+    </form>
+
+    <input type="text" name="outside-form" form="form1">
+  </body>
+</html>
