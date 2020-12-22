@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- <body onload="document.write('onload')"> -->
+  <body>
+    <h1 onclick="this.innerHTML = 'Oops'">hello</h1>
+    <h1 onclick="display(this)">hello</h1>
+    <h1 id='h'>hello</h1>
+    <input type="text" onchange="this.value = this.value.toUpperCase()">
+
+    <h1 onmouseover="this.innerHTML = '2'" onmouseout="this.innerHTML = '1'">1</h1>
+    <h1 onmousedown="this.innerHTML = '2'" onmouseup="this.innerHTML = '1'">1</h1>
+    <script>
+      function display(el) {
+        console.log(el.innerHTML);
+      }
+      document.getElementById('h').onclick = () => console.log('hello');
+    </script>
+  </body>
+</html>
