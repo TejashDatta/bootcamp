@@ -1,0 +1,12 @@
+Math.PI; 
+Math.round(4.7); 
+Math.pow(8, 2); 
+Math.sqrt(64);
+Math.abs(-4.7); 
+Math.ceil(-4.7); 
+Math.floor(-4.7); 
+Math.sin(90 * Math.PI / 180);
+Math.cos(0 * Math.PI / 180);
+Math.min(80, 0, 150, 30, 20, -8, -200);
+Math.max(80, 0, 150, 30, 20, -8, -200);
+Math.random();  

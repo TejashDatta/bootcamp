@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <button onclick="this.innerHTML = 'hello'">click to change</button>
+    <button onclick="change(this)">click to change</button>
+    <script>
+      function change(e) {
+        e.innerHTML = 'hello'
+      }
+    </script>
+  </body>
+</html>
