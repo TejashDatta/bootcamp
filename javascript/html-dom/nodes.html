@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="d">
+      <p>already</p>
+    </div>
+    <script>
+      var newp = document.createElement("p").appendChild(document.createTextNode("new"));
+      var d = document.getElementById("d");
+      d.insertBefore(newp, d.firstChild);
+      
+      d.removeChild(newp);
+      d.appendChild(newp);
+
+      d.replaceChild( 
+        document.createElement("p").appendChild(document.createTextNode("new2")),
+        newp
+      );
+
+      d.remove();      
+    </script>
+  </body>
+</html>
