@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      var txt1 = '<p>Hellooo</p>';
+      var txt2 = '<p>Hellooo</p>';
+
+      $('p#test').append(txt1, txt2);
+      $('p#test').prepend(txt1);
+      $('p#test').after(txt1);
+      $('p#test').before(txt1);
+    });
+    </script>
+  </body>
+</html>
