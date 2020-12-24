@@ -4,7 +4,7 @@ function myFunction() {
   console.log(this);
 }
 
-var obj = {
+var object = {
   myFunction : function() {
     console.log(this);
   }
@@ -12,4 +12,4 @@ var obj = {
 
 var obj2 = {};
 
-obj.myFunction.call(obj2);
+object.myFunction.call(object2);

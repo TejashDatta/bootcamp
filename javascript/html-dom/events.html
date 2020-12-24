@@ -10,8 +10,8 @@
     <h1 onmouseover="this.innerHTML = '2'" onmouseout="this.innerHTML = '1'">1</h1>
     <h1 onmousedown="this.innerHTML = '2'" onmouseup="this.innerHTML = '1'">1</h1>
     <script>
-      function display(el) {
-        console.log(el.innerHTML);
+      function display(element) {
+        console.log(element.innerHTML);
       }
       document.getElementById('h').onclick = () => console.log('hello');
     </script>

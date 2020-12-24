@@ -1,8 +1,8 @@
-async function func() {
+async function exampleFunction() {
   return 'hello';
 }
 
-func().then(
+exampleFunction().then(
   val => console.log(val)
 );
 

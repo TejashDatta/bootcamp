@@ -1,11 +1,11 @@
-var w;
+var worker;
 
 function startWorker() {
   if (typeof(Worker) !== "undefined") {
-    if (typeof(w) == "undefined") {
-      w = new Worker("demo_workers.js");
+    if (typeof(worker) == "undefined") {
+      worker = new Worker("demo_workers.js");
     }
-    w.onmessage = function(event) {
+    worker.onmessage = function(event) {
       event.data;
     };
   } else {
@@ -14,6 +14,6 @@ function startWorker() {
 }
 
 function stopWorker() {
-  w.terminate();
-  w = undefined;
+  worker.terminate();
+  worker = undefined;
 }

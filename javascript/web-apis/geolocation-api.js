@@ -1,11 +1,11 @@
-navigator.geolocation.getCurrentPosition(cb, showErr);
+navigator.geolocation.getCurrentPosition(callback, showError);
 
-function cb(position) {
+function callback(position) {
   position.coords.latitude;
   position.coords.longitude;
 }
 
-function showErr(error) {
+function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
       break;

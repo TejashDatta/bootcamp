@@ -5,4 +5,4 @@ let fileWait =  new Promise((resolve, reject) => {
     reject()
 });
 
-fileWait.then(val => {console.log(val)}, () => console.error('error'));
+fileWait.then(value => {console.log(value)}, () => console.error('error'));

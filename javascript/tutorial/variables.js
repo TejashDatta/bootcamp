@@ -1,12 +1,12 @@
-var var1;
-let var2;
-const var3 = "value";
+var variable1;
+let variable2;
+const variable3 = "value";
 
-var var4 = 30, var5 = 70, var6 = 20;
+var variable4 = 30, variable5 = 70, variable6 = 20;
 
-var var7 = 30,
-var8 = 70,
-var9 = 20;
+var variable7 = 30,
+variable8 = 70,
+variable9 = 20;
 
 var carName = "Volvo";
 var carName;

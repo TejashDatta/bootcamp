@@ -23,17 +23,17 @@
       <div id="animation"></div>
     </div>
     <script>
-      var el = document.getElementById('animation');
-      var pos = 0;
-      anim = setInterval(frame, 20);
+      var element = document.getElementById('animation');
+      var position = 0;
+      animation = setInterval(frame, 20);
       function frame() {
-        if (pos >= 450) {
-          clearInterval(anim);
+        if (position >= 450) {
+          clearInterval(animation);
           return
         }
         pos++;
-        el.style.top = pos + 'px';
-        el.style.left = pos + 'px';
+        element.style.top = position + 'px';
+        element.style.left = position + 'px';
       }
     </script>
   </body>

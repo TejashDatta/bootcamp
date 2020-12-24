@@ -1,9 +1,9 @@
-ele.text("hello");
-ele.html("<p>para</p>");
+element.text("hello");
+element.html("<p>para</p>");
 
-var content = ele.html();
+var content = element.html();
 
 // js
 
-ele.textContent = "hello";
-ele.innerHTML = "<p>para</p>";
+element.textContent = "hello";
+element.innerHTML = "<p>para</p>";
