@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="js-frame"></div>
+    <div id="jquery-frame"></div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      // js
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "resources/table.html", true);
+      xhttp.send();
+
+      xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          document.getElementById('js-frame').innerHTML = this.responseText;
+        }
+      }
+
+      // jquery
+      $(document).ready(function(){
+        $('#jquery-frame').load('resources/table.html');
+      });
+    </script>
+  </body>
+</html>
