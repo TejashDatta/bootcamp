@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="frame"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $.get('resources/table.html', function(data, status) {
+        $('#frame').html(data);
+        console.log(status);
+      })
+    });
+    </script>
+  </body>
+</html>
