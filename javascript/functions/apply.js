@@ -6,6 +6,6 @@ var car = {
 
 var car2 = {};
 
-car.run.call(car2, [50, 40]);
+car.run.call(car2, 50, 40);
 
 Math.max.apply(null, [1, 23, 53]);
