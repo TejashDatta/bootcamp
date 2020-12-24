@@ -8,8 +8,8 @@
       h.addEventListener("click", function() {alert("Hello World!");});
       h.addEventListener("click", function() {alert("World!");});
       h.addEventListener("mouseover", changeColor);
-      function changeColor(e) { 
-        console.log(e.target.style.color = 'red');
+      function changeColor(event) { 
+        console.log(event.target.style.color = 'red');
       }
       h.removeEventListener('mouseover', changeColor);
 
