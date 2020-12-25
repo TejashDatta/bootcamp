@@ -1,7 +1,7 @@
-var str1 = 'hello';
-var str2 = "hello";
+var string1 = 'hello';
+var string2 = "hello";
 
-str2.length;
+string2.length;
 
 var escape = 'we\'re \\ slash';
 
@@ -11,11 +11,11 @@ string';
 var longString = 'long' +
 'string';
 
-var strObj1 = new Object('hello');
-var strObj2 = new Object('hello');
+var stringObject1 = new Object('hello');
+var stringObject2 = new Object('hello');
 
-str1 == strObj1;
-str1 === strObj1;
+string1 == stringObject1;
+string1 === stringObject1;
 
-strObj1 == strObj2;
-strObj1 === strObj2;
+stringObject1 == stringObject2;
+stringObject1 === stringObject2;

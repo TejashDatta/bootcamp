@@ -1,4 +1,4 @@
-ele.hide();
-ele.show();
+element.hide();
+element.show();
 
-ele.css('color', 'red');
+element.css('color', 'red');

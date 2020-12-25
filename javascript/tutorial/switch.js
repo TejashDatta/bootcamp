@@ -1,6 +1,6 @@
-var val = 5
+var value = 5
 
-switch (val) {
+switch (value) {
   case 0:
   case 1:
     console.log('one');

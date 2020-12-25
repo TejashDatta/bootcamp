@@ -1,5 +1,5 @@
-ele.parent();
+element.parent();
 
 // js
 
-ele.parentNode;
+element.parentNode;

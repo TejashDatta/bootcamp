@@ -1,8 +1,8 @@
 try {
   throw 'error';
 }
-catch(err) {
-  console.log(err.name, err.message);
+catch(error) {
+  console.log(error.name, error.message);
 }
 finally {
   console.log('finally');

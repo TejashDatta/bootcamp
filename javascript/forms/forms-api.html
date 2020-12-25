@@ -7,9 +7,9 @@
     <p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
     <script>
       function validate() {
-        var inpObj = document.getElementById("id1");
-        if (!inpObj.checkValidity()) {
-          alert(inpObj.validationMessage);
+        var inputObj = document.getElementById("id1");
+        if (!inputObj.checkValidity()) {
+          alert(inputObj.validationMessage);
           console.log(validity.rangeOverflow || validity.rangeUnderflow);
         } 
       }

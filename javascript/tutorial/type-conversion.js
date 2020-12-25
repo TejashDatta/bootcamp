@@ -3,14 +3,14 @@
 
 [3, 5].constructor === Array;
 
-var d = new Date();
-d.constructor = Date;
+var date = new Date();
+date.constructor = Date;
 
 String(123);
 String(false);
 
-var n = + "5";
+var number = + "5";
 
 Number(true);
-Number(d);
-d.getTime();
+Number(date);
+date.getTime();
