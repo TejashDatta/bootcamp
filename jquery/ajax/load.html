@@ -5,14 +5,14 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function(){
-      $('#frame').load('resources/table.html #t1', function(responseText, statusText, xhr) {
-        if (statusText === 'success')
-          alert('ok');
-        else if (statusText === 'error')
-          alert(xhr.status + ' ' + xhr.statusText)
+      $(document).ready(function(){
+        $('#frame').load('resources/table.html #t1', function(responseText, statusText, xhr) {
+          if (statusText === 'success')
+            alert('ok');
+          else if (statusText === 'error')
+            alert(xhr.status + ' ' + xhr.statusText)
+        });
       });
-    });
     </script>
   </body>
 </html>

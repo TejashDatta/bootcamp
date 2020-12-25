@@ -10,17 +10,17 @@
       <p>This is some <b>bold</b> text in a paragraph. 2</p>
     </div>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function(){
-      console.log($('p#id1').siblings());
-      console.log($('p#id1').siblings('p'));
-      console.log($('p#id1').next());
-      console.log($('p#id1').nextUntil('span'));
-      console.log($('p#id1').prev());
-      console.log($('p#id1').prevAll());
-      // $('p#id1').prevUntil();
-    });
+      $(document).ready(function(){
+        console.log($('p#id1').siblings());
+        console.log($('p#id1').siblings('p'));
+        console.log($('p#id1').next());
+        console.log($('p#id1').nextUntil('span'));
+        console.log($('p#id1').prev());
+        console.log($('p#id1').prevAll());
+        // $('p#id1').prevUntil();
+      });
     </script>
   </body>
 </html>
