@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+    <p>This is some <b>bold</b> text in a paragraph. 2</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $('p').addClass('paragraph');
+      $('p').removeClass('paragraph');
+      $('p').toggleClass('paragraph');
+    });
+    </script>
+  </body>
+</html>

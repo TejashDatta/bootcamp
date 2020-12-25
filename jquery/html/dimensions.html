@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="test" style="padding: 20px; border: 5px solid black; margin: 10px;">This is some <b>bold</b> text in a paragraph.</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      console.log($('p#test').width());
+      console.log($('p#test').height());
+      console.log($('p#test').innerWidth());
+      console.log($('p#test').innerHeight());
+      console.log($('p#test').outerHeight());
+      console.log($('p#test').outerWidth());
+      console.log($('p#test').outerHeight(true));
+      console.log($('p#test').outerWidth(true));
+      
+      $('p#test').width(400).height(400);
+    });
+    </script>
+  </body>
+</html>

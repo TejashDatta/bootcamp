@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="body">
+      <div class="content">
+        <p>This is some <b>bold</b> text in a paragraph.</p>
+        <p>This is some <b>bold</b> text in a paragraph. 2</p>
+        <span>This is some text</span>
+      </div>
+      <p>footer</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      console.log($('.content').children());
+      console.log($('.content').children('p'));
+      console.log($('.body').find('*'));
+      console.log($('.body').find('p'));
+    });
+    </script>
+  </body>
+</html>
