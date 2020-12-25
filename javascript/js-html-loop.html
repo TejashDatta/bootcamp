@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <table class="normal">
+      <caption>table caption</caption>
+      <tr>
+        <th>column 1</th>
+        <th>column 2</th>
+        <th>column 3</th>
+      </tr>
+      <tr>
+        <td>cell 1</td>
+        <td>cell 2</td>
+        <td>cell 3</td>
+      </tr>
+      <tr>
+        <td>cell 4</td>
+        <td>cell 5</td>
+        <td>cell 6</td>
+      </tr>
+    </table>
+
+    <script>
+      let csv = '';
+      let rows = document.getElementsByTagName('tr');
+      for (let i = 0; i < rows.length; i++) {
+        let tag = 'td';
+        if (i === 0) 
+          tag = 'th';
+        let columns = rows[i].getElementsByTagName(tag);
+        for (let j = 0; j < columns.length; j++) {
+          csv += columns[j].firstChild.nodeValue;
+          if (j < columns.length - 1)
+            csv += ',';
+        }
+        csv += '\n'
+      }
+      console.log(csv);
+    </script>
+  </body>
+</html>
