@@ -1,0 +1,5 @@
+ssh-keygen -t rsa -b 4096
+ssh USER@IP_ADDRESS
+ssh-copy-id
+
+scp SOURCE DESTINATION
