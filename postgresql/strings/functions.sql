@@ -1,0 +1,10 @@
+SELECT 'ren' || 'ketsu';
+SELECT upper('abc') || lower('ABC');
+SELECT length('abc');
+SELECT substring('tejash datta' FROM 3 FOR 4);
+SELECT replace('Tejash got {grade}', '{grade}', 'A+');
+SELECT rpad('123', 5, '*');
+SELECT lpad('123', 5);
+SELECT rtrim('**123**', '*');
+SELECT ltrim('   123');
+SELECT md5('rand');

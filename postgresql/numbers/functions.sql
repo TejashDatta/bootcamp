@@ -1,0 +1,15 @@
+SELECT 10 % 4;
+SELECT 10 ^ 4;
+SELECT 1 << 2;
+SELECT 8 >> 1;
+SELECT 8 & 1;
+SELECT 8 | 1;
+SELECT 9 # 1;
+SELECT ~ 1;
+SELECT abs(-3);
+SELECT ceil(6.7);
+SELECT floor(6.7);
+SELECT trunc(6.7);
+SELECT round(6.789123, 3);
+SELECT sqrt(25);
+SELECT random();
