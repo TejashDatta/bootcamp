@@ -5,16 +5,16 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function(){
-      $('p#test').text('hello');
-      $('p#test').html(function(i, originalValue) {
-        return '<b>' + originalValue + '</b>'
+      $(document).ready(function(){
+        $('p#test').text('hello');
+        $('p#test').html(function(i, originalValue) {
+          return '<b>' + originalValue + '</b>'
+        });
+        $('p#test').attr({
+          "data-author": "me",
+          "data-date": "today"
+        });
       });
-      $('p#test').attr({
-        "data-author": "me",
-        "data-date": "today"
-      });
-    });
     </script>
   </body>
 </html>
