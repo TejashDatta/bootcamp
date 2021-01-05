@@ -1,0 +1,3 @@
+SHOW datestyle;
+
+SHOW intervalstyle;
