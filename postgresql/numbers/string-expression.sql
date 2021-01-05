@@ -1,0 +1,10 @@
+SELECT 10^25, 1.23e-5;
+
+SELECT to_char(123.32534, 'S00999D99');
+SELECT to_char(123.32534, 'S0000D99');
+
+SELECT to_number('14,557', '99,999');
+
+SELECT to_char(12, '99th');
+
+SELECT to_char(176.52, '099.999EEEE');
