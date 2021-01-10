@@ -1,0 +1,4 @@
+CREATE SCHEMA schema1;
+
+DROP SCHEMA schema1;
+DROP SCHEMA schema1 CASCADE;
