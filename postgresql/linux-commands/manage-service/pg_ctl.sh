@@ -2,7 +2,7 @@
 #   -D directory of cluster, default is PGDATA setting value
 #   -l log file location
 
-pg_ctl stop -m fast -D /vatr/lib/pgsql/10/data
+pg_ctl stop -m fast -D /var/lib/pgsql/10/data
 
 # stop -m mode otions:
 #   smart - wait for client
