@@ -1,0 +1,1 @@
+GRANT USAGE ON seq1 TO user1;

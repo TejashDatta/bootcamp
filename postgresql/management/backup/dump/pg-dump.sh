@@ -25,9 +25,24 @@ pg_dumpall -U postgres -f global.sql -g
 
 psql -U postgres -f global.sql
 
-# db1 doesn't exist yet
+# db1 doesn't exist yet, -C create database
 pg_restore -U postgres -d postgres -C db1.dump
 
 
-# -C create database
-pg_restore -U postgres -C -d db1 all_db.sql
+# other options
+
+# data only
+pg_dump -U postgres --data-only -F plain -C -f db1.sql db1
+pg_dump -U postgres -a -F plain -C -f db1.sql db1
+
+# only object definitions
+pg_dump -U postgres --schema-only -F plain -C -f db1.sql db1
+pg_dump -U postgres -s -F plain -C -f db1.sql db1
+
+# specific table
+pg_dump -U postgres --table t_user -F plain -C -f db1.sql db1
+pg_dump -U postgres -t t_user -F plain -C -f db1.sql db1
+
+# spefic schema namespace
+pg_dump -U postgres --schema public -F plain -C -f db1.sql db1
+pg_dump -U postgres -n public -F plain -C -f db1.sql db1

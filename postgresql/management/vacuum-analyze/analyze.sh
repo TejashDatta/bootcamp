@@ -1,0 +1,5 @@
+ANALYZE;
+
+ANALYZE t_user;
+
+ANALYZE VERBOSE;
