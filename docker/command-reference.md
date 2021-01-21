@@ -6,6 +6,8 @@ eg docker build -t getting-started .
 
 options:
 -t tag: specify tag/image name
+-f or --file specify Dockerfile location
+--no-cache
 
 # docker run
 run image
@@ -23,6 +25,7 @@ options:
 -t terminal: provide terminal
 -e environment variable set
 -v volume: named volume or bind volume
+-w working directory in image
 
 # docker ps
 list containers
@@ -85,3 +88,50 @@ eg docker volume create app-data
 # docker volume inspect
 docker volume inspect [name]
 eg docker volume inspect app-data
+
+# docker logs
+
+docker logs [container-name]
+eg docker logs -f optimistic_heyrovsky
+
+options:
+-f follow log output continuously
+
+# docker network create
+
+docker network create [network-name]
+eg docker network create todo-app
+
+# docker-compose commands
+
+# docker-compose up
+
+options:
+-d
+
+# docker-compose logs
+
+eg docker-compose logs
+
+docker-compose logs [service-name]
+eg docker-compose logs app
+
+# docker-compose down
+options:
+--volumes delete volumes
+
+# docker scan
+examine security vulnerabilities
+セキュリティの脆弱性を調べる
+
+docker scan [image-name]
+eg docker scan node-app
+
+# docker image history
+view image layer history
+
+docker image history [image-name]
+eg docker image history node-app
+
+options:
+--no-trunc untruncated output
