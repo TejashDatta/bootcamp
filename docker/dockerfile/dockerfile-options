@@ -1,0 +1,7 @@
+LABEL com.example.version="1.5"
+LABEL com.example.release-date="2021-26-1"
+
+ENV PATH=/nginx:$PATH
+
+ENTRYPOINT [ "python" ]
+CMD [ "help" ]
