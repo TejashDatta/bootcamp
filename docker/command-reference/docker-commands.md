@@ -26,11 +26,15 @@ options:
 -e environment variable set
 -v volume: named volume or bind volume
 -w working directory in image
+--name
 
 # docker ps
 list containers
 
 eg docker ps
+
+options:
+-a include exited containers
 
 # docker stop
 stop container
@@ -101,24 +105,6 @@ options:
 
 docker network create [network-name]
 eg docker network create todo-app
-
-# docker-compose commands
-
-# docker-compose up
-
-options:
--d
-
-# docker-compose logs
-
-eg docker-compose logs
-
-docker-compose logs [service-name]
-eg docker-compose logs app
-
-# docker-compose down
-options:
---volumes delete volumes
 
 # docker scan
 examine security vulnerabilities
