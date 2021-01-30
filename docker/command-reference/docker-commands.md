@@ -42,6 +42,17 @@ stop container
 docker stop [container-id]
 eg docker stop cool_proskuriakova
 
+# docker start
+start container
+
+docker start [container-id]
+
+# docker update
+update container options
+
+docker update [container-id]
+eg docker update --restart unless-stopped cool_proskuriakova
+
 # docker rm
 remove container
 
