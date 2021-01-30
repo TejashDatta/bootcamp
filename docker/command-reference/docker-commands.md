@@ -121,3 +121,9 @@ eg docker image history node-app
 
 options:
 --no-trunc untruncated output
+
+# docker stats
+
+# docker logs
+
+docker logs [container-name]
