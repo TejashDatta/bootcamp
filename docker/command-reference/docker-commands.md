@@ -132,3 +132,9 @@ eg docker image history node-app
 
 options:
 --no-trunc untruncated output
+
+# docker stats
+
+# docker attach
+
+docker attack [container-name]
