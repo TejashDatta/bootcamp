@@ -135,6 +135,6 @@ options:
 
 # docker stats
 
-# docker logs
+# docker attach
 
-docker logs [container-name]
+docker attack [container-name]
