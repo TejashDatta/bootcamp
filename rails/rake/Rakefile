@@ -1,0 +1,4 @@
+desc 'Example task'
+task :example do
+  puts 'Hello'
+end
