@@ -5,3 +5,6 @@ class ApplicationController < ActionController::Base
     render template: "shared/login_failed", status: 401
   end
 end
+
+class LoginFailed < StandardError
+end

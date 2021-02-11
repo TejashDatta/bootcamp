@@ -25,12 +25,12 @@ class BooksController < ApplicationController
   private
 
   def set_book
-    @book = Book.find(paramas[:id])
+    @book = Book.find(params[:id])
   end
 
   def action_logger
     logger.info 'around-before'
-    yeild
+    yield
     logger.info 'around-after'
   end
 end
