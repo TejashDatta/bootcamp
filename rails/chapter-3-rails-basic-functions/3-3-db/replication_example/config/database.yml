@@ -18,8 +18,15 @@ default: &default
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  <<: *default
-  database: replication_example_development
+  primary:
+    <<: *default
+    database: db_sample_development
+    port: 33061
+  sub:
+    <<: *default
+    database: db_sample_development
+    port: 33061
+    replica: true
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
