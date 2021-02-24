@@ -4,6 +4,8 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  config.credentials.content_path = Rails.root.join('config', 'credentials', 'staging.yml.enc')
+  config.credentials.key_path = Rails.root.join('config', 'credentials', 'staging.key')
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = false
