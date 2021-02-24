@@ -1,0 +1,9 @@
+<head>
+  <%= csp_meta_tag %>
+</head>
+
+<%= javascript_tag nonce: true do %>
+  alert('hello');
+<% end %>
+
+<%= javascript_pack_tag "script", nonce: true %>
