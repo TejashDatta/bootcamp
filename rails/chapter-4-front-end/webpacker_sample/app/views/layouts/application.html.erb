@@ -7,9 +7,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'hello', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_pack_tag 'example' %>
   </head>
 
   <body>
     <%= yield %>
+
+    <%= image_pack_tag("media/images/sample.jpeg") %>
+    <%= image_tag(asset_pack_path("media/images/sample.jpeg")) %>
   </body>
 </html>
