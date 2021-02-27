@@ -1,1 +1,1 @@
-alert('hello webpack!')
+alert('hello webpack')
