@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'perfect_rails@example.com'
+  default from: 'niltux@gmail.com'
   layout 'mailer'
 end
