@@ -8,7 +8,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name: Rails.application.credentials.smtp_user_name,
     password: Rails.application.credentials.smtp_password,
-    domain: 'niltux@gmail.com',
+    domain: 'gmail.com',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
