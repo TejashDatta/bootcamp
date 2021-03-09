@@ -6,3 +6,6 @@ rails db:create
 rails db:migrate
 
 rails g channel room speak
+
+
+bundle exec puma cable/config.ru
