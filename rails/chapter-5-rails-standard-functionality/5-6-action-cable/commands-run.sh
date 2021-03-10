@@ -9,3 +9,5 @@ rails g channel room speak
 
 
 bundle exec puma cable/config.ru
+
+rails g model User name
