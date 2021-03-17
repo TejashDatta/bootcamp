@@ -15,3 +15,10 @@ rails g controller sessions
 # event
 
 rails g resource event owner_id:bigint name place start_at:datetime end_at:datetime content:text
+
+# 参加
+rails g model ticket user:references event:references comment
+rails g controller tickets
+
+# 退会
+rails g controller retirements
