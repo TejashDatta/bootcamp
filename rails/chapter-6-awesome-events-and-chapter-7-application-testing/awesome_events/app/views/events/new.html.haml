@@ -21,5 +21,8 @@
   .form-group 
     = form.label :content
     = form.text_area :content, class: 'form-control', row: 10
+  .form-group
+    = form.label :image
+    = form.file_field :image, class: 'form-control-file'
   = form.submit class: 'btn btn-primary'
     
