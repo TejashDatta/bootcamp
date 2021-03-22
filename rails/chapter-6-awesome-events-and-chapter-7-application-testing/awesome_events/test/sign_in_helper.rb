@@ -9,8 +9,19 @@ module SignInHelper
         image: user.image_url
       }
     )
-    visit root_url
-    click_on 'GitHubでログイン'
+    case
+    when respond_to?(:visit)
+      visit root_url
+      click_on 'GitHubでログイン'
+    when respond_to?(:get)
+      get '/auth/github/callback'
+    else
+      raise NotImplementedError.new
+    end
     @current_user = user
   end
+end
+
+class ActionDispatch::IntegrationTest
+  include SignInHelper
 end
