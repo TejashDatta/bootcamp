@@ -13,6 +13,8 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 gem 'kaminari', '~> 1.2.0'
 gem 'searchkick', '~> 4.3.0'
 
+gem 'simplecov', require: false, group: :test
+
 gem 'rails-i18n', '~> 6.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -65,6 +67,8 @@ group :test do
   gem 'webdrivers'
   gem 'factory_bot_rails'
 end
+
+gem 'simplecov', require: false, group: :test
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
