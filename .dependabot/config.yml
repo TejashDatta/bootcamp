@@ -1,0 +1,10 @@
+version: 1
+update_configs:
+  - package_manager: "ruby:bundler"
+    directory: "/rails/chapter-6-awesome-events-chapter-7-application-testing-chapter-8-application-extension/awesome_events/"
+    update_schedule: "weekly"
+    allowed_updates:
+      - match:
+        update_type: "all"
+    version_requirement_updates: "off"
+    
