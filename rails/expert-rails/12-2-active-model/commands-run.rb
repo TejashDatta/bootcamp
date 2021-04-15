@@ -17,3 +17,12 @@ person.name = 'John'
 person.age = 20
 puts person.to_json
 puts person.to_json(except: %i[age])
+
+person = PersonValidations.new
+person.name = 'John'
+person.valid?
+person.errors.messages
+
+person.name = 'joHn'
+person.valid?
+person.name
