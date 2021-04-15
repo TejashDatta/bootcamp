@@ -1,5 +1,5 @@
 class PersonModel
   include ActiveModel::Model
 
-  attr_accessor :name
+  attribute :name, :string
 end
