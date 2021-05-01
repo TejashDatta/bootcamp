@@ -79,8 +79,11 @@ set tag
 docker tag old-tag USER-NAME/tag
 eg docker tag node-app tejashdatta/node-app
 
-# docker image ls
+# docker image 
+ls
 list downloaded images
+rm 
+remove images
 
 # docker push
 upload image to repository
